@@ -1,6 +1,7 @@
 import { Section } from "@/components/section";
 import { MotionIn } from "@/components/motion-in";
 import { Tag } from "@/components/tag";
+import { CardCTAs, primaryUrl } from "@/components/project-cta";
 import { FEATURED_PROJECTS } from "@/lib/data";
 
 export function Projects() {
@@ -16,48 +17,45 @@ export function Projects() {
       intro="A sample of systems I've owned end-to-end. Real users, real money, real failure modes."
     >
       <div className="grid md:grid-cols-2 gap-6">
-        {FEATURED_PROJECTS.map((p, i) => (
-          <MotionIn key={p.title} delay={i * 0.04}>
-            <article className="group bg-card border border-fg p-6 h-full flex flex-col shadow-hard hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all">
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight leading-tight">
-                  {p.title}
-                </h3>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Open ${p.title} on ${p.hrefKind === "repo" ? "GitHub" : "the web"}`}
-                  className="shrink-0 inline-flex h-9 w-9 items-center justify-center border border-fg bg-surface hover:bg-accent hover:text-white transition-colors"
-                >
-                  <ExternalIcon />
-                </a>
-              </div>
+        {FEATURED_PROJECTS.map((p, i) => {
+          const primary = primaryUrl(p);
+          return (
+            <MotionIn key={p.title} delay={i * 0.04}>
+              <article className="group bg-card border border-fg p-6 h-full flex flex-col shadow-hard hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all">
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <h3 className="text-xl sm:text-2xl font-semibold tracking-tight leading-tight">
+                    {p.title}
+                  </h3>
+                  {primary && (
+                    <a
+                      href={primary.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${p.title} — ${primary.label}`}
+                      className="shrink-0 inline-flex h-9 w-9 items-center justify-center border border-fg bg-surface hover:bg-accent hover:text-white transition-colors"
+                    >
+                      <ExternalIcon />
+                    </a>
+                  )}
+                </div>
 
-              <dl className="space-y-3 text-sm flex-1">
-                <Field label="The problem">{p.problem}</Field>
-                <Field label="What I built">{p.built}</Field>
-                <Field label="My role">{p.role}</Field>
-              </dl>
+                <dl className="space-y-3 text-sm flex-1">
+                  <Field label="The problem">{p.problem}</Field>
+                  <Field label="What I built">{p.built}</Field>
+                  <Field label="My role">{p.role}</Field>
+                </dl>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {p.stack.map((s) => (
-                  <Tag key={s}>{s}</Tag>
-                ))}
-              </div>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {p.stack.map((s) => (
+                    <Tag key={s}>{s}</Tag>
+                  ))}
+                </div>
 
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-widest text-accent hover:underline"
-              >
-                {p.hrefKind === "repo" ? "View repository" : "View on GitHub"}
-                <span aria-hidden>↗</span>
-              </a>
-            </article>
-          </MotionIn>
-        ))}
+                <CardCTAs links={p} />
+              </article>
+            </MotionIn>
+          );
+        })}
       </div>
     </Section>
   );

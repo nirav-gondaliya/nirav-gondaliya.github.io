@@ -1,22 +1,31 @@
 // ---------------------------------------------------------------
 // Single source of truth for site content.
-// GitHub repo links resolved against https://github.com/niravzxv
-// public repos snapshot: phonepe-mcp, shivay-infra-setup, shivay,
-// todo, lighthouse, portfolio-react, childdr, AUTOMATIC1111-…
-// Anything without a clear repo or live demo falls back to profile.
+// Public repos live under https://github.com/niravzxv. Most
+// project work is client/NDA — those are marked isPrivate: true
+// and render a "Private · client work" badge instead of a link.
+// demoUrl / loomUrl are intentionally empty placeholders; fill
+// them in below as deployments / walkthroughs become available.
 // ---------------------------------------------------------------
 
-export const GH_USER = "https://github.com/niravzxv";
-export const GH = (slug: string) => `https://github.com/niravzxv/${slug}`;
+// ProjectLinks: shared link shape for Featured Projects and More Tools.
+// - repoUrl: only set when a real PUBLIC repo exists. Never point at the
+//   bare profile here — leave undefined and rely on isPrivate instead.
+// - demoUrl: live deployment, optional.
+// - loomUrl: walkthrough video, optional.
+// - isPrivate: true = client/NDA work, no public code.
+export type ProjectLinks = {
+  repoUrl?: string;
+  demoUrl?: string;
+  loomUrl?: string;
+  isPrivate: boolean;
+};
 
-export type FeaturedProject = {
+export type FeaturedProject = ProjectLinks & {
   title: string;
   problem: string;
   built: string;
   stack: string[];
   role: string;
-  href: string;
-  hrefKind: "repo" | "profile" | "demo";
 };
 
 export const FEATURED_PROJECTS: FeaturedProject[] = [
@@ -28,8 +37,10 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "An unofficial TypeScript MCP server for PhonePe Standard Checkout v2. Five tools — create_payment, get_order_status, initiate_refund, get_refund_status and a timing-safe verify_webhook_signature. OAuth tokens are fetched, cached and refreshed automatically. Sandbox and production environments. Unit-tested against a mocked fetch — no live calls.",
     stack: ["TypeScript", "MCP SDK", "Node 18+", "OAuth", "Webhook crypto", "Vitest"],
     role: "Sole author. Designed the tool schema, wrote the auth/cache layer, ship and maintain it solo.",
-    href: GH("phonepe-mcp"),
-    hrefKind: "repo",
+    repoUrl: "https://github.com/niravzxv/phonepe-mcp",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: false,
   },
   {
     title: "Multi-Store Retail ERP / CRM / PM",
@@ -39,8 +50,9 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "A single ERP with embedded CRM and project management. Full role-based access control down to the field level — owners, store managers, cashiers and accountants each see a different app.",
     stack: ["Next.js", "Node.js", "PostgreSQL", "RBAC", "Stripe-style audit log"],
     role: "End-to-end: schema, RBAC engine, deploy, monitoring.",
-    href: GH_USER,
-    hrefKind: "profile",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "Auto-Provisioning Lead Funnel",
@@ -50,8 +62,9 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "A lead funnel that programmatically spins up a fresh AWS instance of the product on its own subdomain per client. New tenant, new DNS, new DB, all wired in under a minute.",
     stack: ["Node.js", "AWS SDK", "Route 53", "IaC", "Postgres"],
     role: "Architected the multi-tenant provisioning pipeline and DNS automation.",
-    href: GH_USER,
-    hrefKind: "profile",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "Resilient API → SQL Ingestion Pipeline",
@@ -61,8 +74,9 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "A high-volume ingestion pipeline with adaptive rate-limiting, exponential backoff, queue-based backpressure and at-least-once delivery into SQL. Upstream is now treated as the unreliable network it actually is.",
     stack: ["Node.js", "SQL", "Queueing", "Backpressure", "Idempotency keys"],
     role: "Designed the resilience model and rebuilt the pipeline from scratch.",
-    href: GH_USER,
-    hrefKind: "profile",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "On-Device LLM for Android",
@@ -72,8 +86,9 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "A custom Android app that loads and runs a quantized LLM locally. Conversational UX, streaming tokens, fully offline. Inference happens on-device with model files bundled or sideloaded.",
     stack: ["Android", "Kotlin", "Local inference", "Quantized LLM"],
     role: "Solo build — app shell, prompt loop, model integration.",
-    href: GH_USER,
-    hrefKind: "profile",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "WhatsApp Appointment Booking + Payments",
@@ -83,8 +98,9 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "Full appointment booking inside WhatsApp via the Business API — slot picking, confirmations, reminders and an integrated payment gateway. Zero context-switch for the patient.",
     stack: ["WhatsApp Business API", "Node.js", "Payment gateway", "Webhooks"],
     role: "End-to-end: conversation design, payment integration, deploy.",
-    href: GH_USER,
-    hrefKind: "profile",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "Elios GenAI Suite",
@@ -94,8 +110,9 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "A unified suite: image generation, video processing, TTS, STT, AI résumé generation and Google OAuth — all under one dashboard with shared billing and history.",
     stack: ["OpenAI APIs", "Next.js", "Node.js", "Google OAuth", "FFmpeg"],
     role: "Full-stack lead for the platform and integrations.",
-    href: GH_USER,
-    hrefKind: "profile",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "POS Application",
@@ -105,8 +122,9 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "Full point-of-sale system: cart, taxes, discounts, receipt printing, offline queue, and reconciliation with the central database.",
     stack: ["Node.js", "React", "Offline-first sync", "Thermal printer"],
     role: "Built the offline-first sync layer and the reconciliation engine.",
-    href: GH_USER,
-    hrefKind: "profile",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "Consult Doctor",
@@ -116,8 +134,9 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "Telehealth platform with WebRTC video consultations, Razorpay payments and digital prescriptions a patient can download or forward to a pharmacy.",
     stack: ["WebRTC", "Node.js", "Razorpay", "PDF generation"],
     role: "Built the video layer and the prescription pipeline.",
-    href: GH_USER,
-    hrefKind: "profile",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "Local Agentic Code Pipeline",
@@ -127,51 +146,81 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "A self-correcting local agent (Qwen 2.5 + Cline + Aider) that generates project structure, writes tests, runs them, reads stack traces and iterates until everything's green. Entirely local — no cloud LLM, no telemetry.",
     stack: ["Qwen 2.5", "Cline", "Aider", "Local inference", "Test runner loop"],
     role: "Designed the self-correction loop and the prompt scaffolding.",
-    href: GH_USER,
-    hrefKind: "profile",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
 ];
 
-export type MoreTool = { title: string; blurb: string; href: string };
+export type MoreTool = ProjectLinks & { title: string; blurb: string };
 
 export const MORE_TOOLS: MoreTool[] = [
   {
     title: "Todo + scratchpad app",
     blurb: "Daily driver. Todos and free-form notes living together, keyboard first.",
-    href: GH("todo"),
+    repoUrl: "https://github.com/niravzxv/todo",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: false,
   },
   {
     title: "File diff checker",
     blurb: "Drop two files, get a clean side-by-side diff in your browser.",
-    href: GH_USER,
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "Google Maps lead scraper",
     blurb: "Pulls structured business leads from Maps for any query + radius.",
-    href: GH_USER,
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "Phone-number spam classifier",
     blurb: "Heuristic + ML model that flags likely spam callers by pattern.",
-    href: GH_USER,
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "Number-based image-region highlighter",
     blurb: "Annotate any image with numbered regions, exportable as overlay.",
-    href: GH_USER,
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "Side-by-side image review platform",
     blurb: "Store uploads, admin approval queue, side-by-side comparison.",
-    href: GH_USER,
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: true,
   },
   {
     title: "AI server provisioner (Ubuntu 24.04)",
     blurb:
       "One-shot Ubuntu 24.04 setup for GPU AI hosts: NVIDIA drivers + CUDA, Docker, a shared PyTorch venv (transformers, diffusers, accelerate), Node LTS + PM2, UFW. Idempotent.",
-    href: GH("shivay-infra-setup"),
+    repoUrl: "https://github.com/niravzxv/shivay-infra-setup",
+    demoUrl: "", // TODO: paste live URL
+    loomUrl: "", // TODO: paste Loom walkthrough URL
+    isPrivate: false,
   },
 ];
+
+// Open Source contribution — Lighthouse PR.
+// repoUrl points at the upstream repo (not my profile).
+// prUrl, when filled, renders a "View my merged PR ↗" button.
+export type OpenSourceItem = {
+  repoUrl: string;
+  prUrl?: string;
+};
+
+export const LIGHTHOUSE: OpenSourceItem = {
+  repoUrl: "https://github.com/GoogleChrome/lighthouse",
+  prUrl: "", // TODO: paste merged PR URL
+};
 
 export type Role = {
   company: string;

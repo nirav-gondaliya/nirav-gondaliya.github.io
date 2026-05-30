@@ -1,5 +1,6 @@
 import { Section } from "@/components/section";
 import { Tag } from "@/components/tag";
+import { LIGHTHOUSE } from "@/lib/data";
 
 export function OpenSource() {
   return (
@@ -35,15 +36,28 @@ export function OpenSource() {
             <Tag>Open source</Tag>
             <Tag>Merged PR</Tag>
           </div>
-          <a
-            href="https://github.com/niravzxv"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-semibold border border-fg px-4 py-2 bg-surface shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard transition-all"
-          >
-            View on GitHub
-            <span aria-hidden>↗</span>
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={LIGHTHOUSE.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-semibold border border-fg px-4 py-2 bg-surface shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard transition-all"
+            >
+              View Lighthouse repo
+              <span aria-hidden>↗</span>
+            </a>
+            {LIGHTHOUSE.prUrl && (
+              <a
+                href={LIGHTHOUSE.prUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-semibold border border-fg px-4 py-2 bg-surface shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard transition-all"
+              >
+                View my merged PR
+                <span aria-hidden>↗</span>
+              </a>
+            )}
+          </div>
         </div>
 
         <aside className="bg-card border border-fg p-7 shadow-hard">
