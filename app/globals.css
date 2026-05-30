@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #EEEFE9;
+  --bg-soft: #F5F5EF;
+  --fg: #1A1A18;
+  --fg-soft: #26261F;
+  --muted: #6B6B62;
+  --border: #1A1A18;
+  --accent: #F1652A;
+  --card: #FFFFFF;
+}
+
+.dark {
+  --bg: #15140F;
+  --bg-soft: #1E1D17;
+  --fg: #EEEFE9;
+  --fg-soft: #DEDED4;
+  --muted: #9B9B91;
+  --border: #EEEFE9;
+  --accent: #F1652A;
+  --card: #1E1D17;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-feature-settings: "ss01", "ss02", "cv11";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* Focus ring — keyboard accessible */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Custom utilities */
+.bg-surface { background-color: var(--bg); }
+.bg-soft { background-color: var(--bg-soft); }
+.bg-card { background-color: var(--card); }
+.text-fg { color: var(--fg); }
+.text-fg-soft { color: var(--fg-soft); }
+.text-muted { color: var(--muted); }
+.text-accent { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+.border-fg { border-color: var(--border); }
+
+/* Hard offset shadow that respects theme */
+.shadow-hard {
+  box-shadow: 4px 4px 0 0 var(--border);
+}
+.shadow-hard-sm {
+  box-shadow: 2px 2px 0 0 var(--border);
+}
+.shadow-hard-lg {
+  box-shadow: 6px 6px 0 0 var(--border);
+}
+.shadow-hard-accent {
+  box-shadow: 4px 4px 0 0 var(--accent);
+}
+
+/* Underline scribble — using SVG background */
+.scribble-underline {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q 30 1, 60 6 T 118 6' stroke='%23F1652A' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 100% 0.4em;
+  padding-bottom: 0.15em;
+}
+
+/* Dotted vertical connector */
+.dot-connector {
+  background-image: radial-gradient(circle, var(--border) 1.4px, transparent 1.4px);
+  background-size: 4px 10px;
+  background-repeat: repeat-y;
+  background-position: center top;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Improve heading rhythm */
+h1, h2, h3, h4 {
+  letter-spacing: -0.025em;
+}
