@@ -26,9 +26,42 @@ export type FeaturedProject = ProjectLinks & {
   built: string;
   stack: string[];
   role: string;
+  // Optional: marks two projects as a pair (e.g. an MCP server and the agent
+  // that calls it). Set on BOTH halves of the pair so the UI can render a
+  // small "↔ Pairs with …" link on each card. Value must match the partner
+  // project's `title` exactly.
+  pairWith?: string;
 };
 
 export const FEATURED_PROJECTS: FeaturedProject[] = [
+  {
+    title: "UPI MCP Server",
+    problem:
+      "UPI is India's default payment rail, but there's no way for an AI assistant to mint a valid upi:// link or a scannable QR without hitting a third-party API and leaking payee details.",
+    built:
+      "An offline, zero-dependency MCP server that builds and parses UPI deep links and renders PNG QR codes locally. Three tools — create_upi_link, create_upi_qr, parse_upi_link — each with VPA validation and amount bounds. No API keys, no network calls, no NPCI affiliation: pure deterministic logic over the public UPI URI spec.",
+    stack: ["TypeScript", "MCP SDK", "Node 18+", "QR PNG", "UPI URI spec", "Offline"],
+    role: "Sole author. Designed the tool schema, wrote the URI builder/parser and the QR pipeline.",
+    repoUrl: "https://github.com/niravzxv/upi-mcp",
+    demoUrl: "",
+    loomUrl: "",
+    isPrivate: false,
+    pairWith: "UPI Agent (LLM client)",
+  },
+  {
+    title: "UPI Agent (LLM client)",
+    problem:
+      "Most agent demos hide the loop behind a framework. I wanted a minimal, readable proof that a tiny TypeScript loop + a free open-weight LLM can drive a real MCP server end-to-end.",
+    built:
+      "A from-scratch agent loop that turns plain-English requests (\"send ₹250 to alice@upi for lunch\") into UPI links and QR codes by autonomously calling tools on the upi-mcp server. No agent framework — just history + tools → LLM → tool call → result → repeat. Runs on Groq's free Llama 3.3 70B endpoint at temperature 0 for deterministic tool dispatch.",
+    stack: ["TypeScript", "MCP Client SDK", "Groq API", "Llama 3.3 70B", "Tool calling", "Node 18+"],
+    role: "Sole author. Wrote the agent loop, the tool-dispatch layer and the MCP client wiring.",
+    repoUrl: "https://github.com/niravzxv/upi-agent",
+    demoUrl: "",
+    loomUrl: "",
+    isPrivate: false,
+    pairWith: "UPI MCP Server",
+  },
   {
     title: "PhonePe MCP Server",
     problem:

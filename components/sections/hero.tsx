@@ -68,6 +68,17 @@ export function Hero() {
           Get in touch
           <span aria-hidden className="ml-2">→</span>
         </a>
+        <a
+          href="/resume.pdf"
+          download="Nirav-Gondaliya-Resume.pdf"
+          className="inline-flex items-center gap-2 bg-card text-fg px-5 py-3 text-base font-semibold border border-fg shadow-hard hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all"
+          aria-label="Download résumé (PDF)"
+        >
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+          </svg>
+          Résumé
+        </a>
       </motion.div>
 
       <motion.div

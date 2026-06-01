@@ -4,6 +4,13 @@ import { Tag } from "@/components/tag";
 import { CardCTAs, primaryUrl } from "@/components/project-cta";
 import { FEATURED_PROJECTS } from "@/lib/data";
 
+function slug(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 export function Projects() {
   return (
     <Section
@@ -19,9 +26,13 @@ export function Projects() {
       <div className="grid md:grid-cols-2 gap-6">
         {FEATURED_PROJECTS.map((p, i) => {
           const primary = primaryUrl(p);
+          const cardId = `project-${slug(p.title)}`;
           return (
             <MotionIn key={p.title} delay={i * 0.04}>
-              <article className="group bg-card border border-fg p-6 h-full flex flex-col shadow-hard hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all">
+              <article
+                id={cardId}
+                className="group bg-card border border-fg p-6 h-full flex flex-col shadow-hard hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all scroll-mt-24"
+              >
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <h3 className="text-xl sm:text-2xl font-semibold tracking-tight leading-tight">
                     {p.title}
@@ -38,6 +49,17 @@ export function Projects() {
                     </a>
                   )}
                 </div>
+
+                {p.pairWith && (
+                  <a
+                    href={`#project-${slug(p.pairWith)}`}
+                    className="mb-4 inline-flex w-fit items-center gap-1.5 border border-accent/60 bg-accent/10 text-accent px-2 py-1 font-mono text-[10px] uppercase tracking-widest hover:bg-accent hover:text-white transition-colors"
+                    title={`Jump to ${p.pairWith}`}
+                  >
+                    <LinkIcon />
+                    Pairs with {p.pairWith}
+                  </a>
+                )}
 
                 <dl className="space-y-3 text-sm flex-1">
                   <Field label="The problem">{p.problem}</Field>
@@ -76,6 +98,15 @@ function ExternalIcon() {
   return (
     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d="M7 17L17 7M9 7h8v8" />
+    </svg>
+  );
+}
+
+function LinkIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 1 0-7.07-7.07l-1.5 1.5" />
+      <path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 1 0 7.07 7.07l1.5-1.5" />
     </svg>
   );
 }

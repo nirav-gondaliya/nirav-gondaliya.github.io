@@ -51,6 +51,15 @@ export function Nav() {
                 {l.label}
               </a>
             ))}
+            <a
+              href="/resume.pdf"
+              download="Nirav-Gondaliya-Resume.pdf"
+              className="ml-2 inline-flex items-center gap-1.5 bg-card text-fg px-3 py-2 text-sm font-semibold border border-fg shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard transition-all"
+              aria-label="Download résumé (PDF)"
+            >
+              <DownloadIcon />
+              Resume
+            </a>
             <button
               onClick={toggle}
               aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
@@ -99,8 +108,17 @@ export function Nav() {
                 </a>
               ))}
               <a
+                href="/resume.pdf"
+                download="Nirav-Gondaliya-Resume.pdf"
+                onClick={() => setOpen(false)}
+                className="mt-3 inline-flex items-center justify-center gap-2 bg-card text-fg px-3 py-3 font-semibold border border-fg"
+              >
+                <DownloadIcon />
+                Download résumé
+              </a>
+              <a
                 href="mailto:nirav.gondaliya@icloud.com"
-                className="mt-3 inline-flex justify-center bg-accent text-white px-3 py-3 font-semibold border border-fg"
+                className="mt-2 inline-flex justify-center bg-accent text-white px-3 py-3 font-semibold border border-fg"
               >
                 Hire me →
               </a>
@@ -141,6 +159,16 @@ function CloseIcon() {
   return (
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
       <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  );
+}
+
+function DownloadIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M12 3v12" />
+      <path d="M7 10l5 5 5-5" />
+      <path d="M5 21h14" />
     </svg>
   );
 }
