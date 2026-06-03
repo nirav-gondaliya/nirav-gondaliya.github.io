@@ -34,9 +34,11 @@ npm run start
 1. Push this repo to GitHub.
 2. On [vercel.com](https://vercel.com), **Add New Project** → import the repo.
 3. Vercel auto-detects Next.js — no settings to change. Hit **Deploy**.
-4. Add your custom domain (e.g. `niravgondaliya.dev`) under **Project → Settings → Domains**.
-5. Update the canonical `SITE_URL` in `app/layout.tsx` and the sitemap/robots URLs in
-   `app/sitemap.ts` and `app/robots.ts` if your domain differs.
+4. Add your custom domain (`niravgondaliya.dev`) under **Project → Settings → Domains**.
+5. The canonical `SITE_URL` in `app/layout.tsx` and the sitemap/robots URLs in
+   `app/sitemap.ts` and `app/robots.ts` are already set to `https://niravgondaliya.dev`.
+   GitHub Pages reads `public/CNAME` (which contains `niravgondaliya.dev`) to serve
+   the static export from the custom domain.
 
 That's it. No environment variables required.
 
@@ -70,7 +72,7 @@ Everything user-visible lives in `lib/data.ts` and the section components under
 `components/sections/`. Update `FEATURED_PROJECTS`, `MORE_TOOLS`, or `EXPERIENCE` and the
 page rebuilds itself.
 
-GitHub repo links are resolved against `https://github.com/niravzxv`. Where a project has
+GitHub repo links are resolved against `https://github.com/nirav-gondaliya`. Where a project has
 no public repo, links fall back to the profile.
 
 ## Accessibility & performance notes

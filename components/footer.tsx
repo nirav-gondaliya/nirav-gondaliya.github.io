@@ -7,7 +7,7 @@ export function Footer() {
           © {year} Nirav Gondaliya · Built with Next.js, Tailwind &amp; quiet stubbornness.
         </div>
         <div className="flex items-center gap-4 font-mono text-xs">
-          <a href="https://github.com/niravzxv" target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+          <a href="https://github.com/nirav-gondaliya" target="_blank" rel="noopener noreferrer" className="hover:text-accent">
             GitHub
           </a>
           <a href="https://www.linkedin.com/in/niravzxv" target="_blank" rel="noopener noreferrer" className="hover:text-accent">

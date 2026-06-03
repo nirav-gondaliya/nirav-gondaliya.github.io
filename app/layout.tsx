@@ -22,7 +22,7 @@ const display = Instrument_Serif({
   variable: "--font-display",
 });
 
-const SITE_URL = "https://niravzxv.github.io";
+const SITE_URL = "https://niravgondaliya.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,20 +31,41 @@ export const metadata: Metadata = {
     template: "%s · Nirav Gondaliya",
   },
   description:
-    "7+ years shipping production systems across fintech, healthtech & enterprise SaaS. I build the unglamorous infrastructure that makes AI products actually work — MCP servers, local LLM deployment, agentic pipelines, resilient data systems.",
+    "Nirav Gondaliya — Senior Full-Stack & AI Infrastructure Engineer (Rajkot, India · Remote). 7+ years shipping production systems across fintech, healthtech and enterprise SaaS. I build the unglamorous infrastructure that makes AI products actually work — MCP servers, local LLM deployment, agentic pipelines, resilient data systems.",
   keywords: [
     "Nirav Gondaliya",
+    "niravgondaliya",
+    "niravgondaliya.dev",
+    "Nirav Gondaliya portfolio",
+    "Nirav Gondaliya engineer",
+    "Nirav Gondaliya developer",
+    "Nirav Gondaliya GitHub",
+    "Nirav Gondaliya resume",
+    "Nirav Gondaliya CV",
+    "Nirav Gondaliya Rajkot",
+    "Nirav Gondaliya India",
+    "Nirav",
+    "Gondaliya",
+    "nirav-gondaliya",
     "Senior Full-Stack Engineer",
-    "AI Infrastructure",
-    "MCP Server",
-    "Next.js",
-    "TypeScript",
+    "Full-Stack Developer India",
+    "AI Infrastructure Engineer",
+    "MCP Server developer",
+    "Next.js engineer",
+    "TypeScript engineer",
+    "Node.js engineer",
     "Agentic Pipelines",
-    "Remote Engineer",
+    "Local LLM",
+    "Remote Engineer India",
     "Founding Engineer",
+    "Ratnam Solutions",
+    "Shivay Infotech",
   ],
-  authors: [{ name: "Nirav Gondaliya", url: "https://github.com/niravzxv" }],
+  authors: [{ name: "Nirav Gondaliya", url: "https://github.com/nirav-gondaliya" }],
   creator: "Nirav Gondaliya",
+  publisher: "Nirav Gondaliya",
+  applicationName: "Nirav Gondaliya — Portfolio",
+  category: "Software Engineering",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -52,17 +73,75 @@ export const metadata: Metadata = {
     siteName: "Nirav Gondaliya",
     title: "Nirav Gondaliya — Senior Full-Stack & AI Infrastructure Engineer",
     description:
-      "I build the unglamorous infrastructure that makes AI products actually work — MCP servers, local LLM deployment, agentic pipelines, resilient data systems.",
+      "Official portfolio of Nirav Gondaliya. Senior Full-Stack & AI Infrastructure Engineer building MCP servers, local LLM deployment, agentic pipelines and resilient data systems.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nirav Gondaliya — Senior Full-Stack & AI Infrastructure Engineer",
     description:
-      "7+ years building production systems. AI infra, MCP servers, agentic pipelines. Open to senior / founding remote roles.",
+      "Nirav Gondaliya — 7+ years building production systems. AI infra, MCP servers, agentic pipelines. Open to senior / founding remote roles.",
     creator: "@niravzxv",
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   alternates: { canonical: SITE_URL },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Nirav Gondaliya",
+  alternateName: ["Nirav", "nirav-gondaliya", "niravgondaliya", "Nirav G."],
+  url: SITE_URL,
+  image: `${SITE_URL}/opengraph-image.png`,
+  jobTitle: "Senior Full-Stack & AI Infrastructure Engineer",
+  description:
+    "Senior Full-Stack & AI Infrastructure Engineer with 7+ years shipping production systems across fintech, healthtech and enterprise SaaS.",
+  email: "mailto:nirav.gondaliya@icloud.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Rajkot",
+    addressRegion: "Gujarat",
+    addressCountry: "IN",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "Ratnam Solutions",
+  },
+  knowsAbout: [
+    "Full-Stack Engineering",
+    "AI Infrastructure",
+    "MCP Servers",
+    "Local LLM Deployment",
+    "Agentic Pipelines",
+    "TypeScript",
+    "Node.js",
+    "Next.js",
+    "PostgreSQL",
+    "AWS",
+  ],
+  sameAs: [
+    "https://github.com/nirav-gondaliya",
+    "https://www.linkedin.com/in/niravzxv",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Nirav Gondaliya",
+  alternateName: "Nirav Gondaliya — Portfolio",
+  url: SITE_URL,
+  author: { "@type": "Person", name: "Nirav Gondaliya" },
 };
 
 export const viewport: Viewport = {
@@ -98,6 +177,14 @@ export default function RootLayout({
               } catch(e) {}
             `,
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className="bg-surface text-fg font-sans antialiased">

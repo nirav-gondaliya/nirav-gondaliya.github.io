@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------
 // Single source of truth for site content.
-// Public repos live under https://github.com/niravzxv. Most
+// Public repos live under https://github.com/nirav-gondaliya. Most
 // project work is client/NDA — those are marked isPrivate: true
 // and render a "Private · client work" badge instead of a link.
 // demoUrl / loomUrl are intentionally empty placeholders; fill
@@ -42,7 +42,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "An offline, zero-dependency MCP server that builds and parses UPI deep links and renders PNG QR codes locally. Three tools — create_upi_link, create_upi_qr, parse_upi_link — each with VPA validation and amount bounds. No API keys, no network calls, no NPCI affiliation: pure deterministic logic over the public UPI URI spec.",
     stack: ["TypeScript", "MCP SDK", "Node 18+", "QR PNG", "UPI URI spec", "Offline"],
     role: "Sole author. Designed the tool schema, wrote the URI builder/parser and the QR pipeline.",
-    repoUrl: "https://github.com/niravzxv/upi-mcp",
+    repoUrl: "https://github.com/nirav-gondaliya/upi-mcp",
     demoUrl: "",
     loomUrl: "",
     isPrivate: false,
@@ -56,7 +56,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "A from-scratch agent loop that turns plain-English requests (\"send ₹250 to alice@upi for lunch\") into UPI links and QR codes by autonomously calling tools on the upi-mcp server. No agent framework — just history + tools → LLM → tool call → result → repeat. Runs on Groq's free Llama 3.3 70B endpoint at temperature 0 for deterministic tool dispatch.",
     stack: ["TypeScript", "MCP Client SDK", "Groq API", "Llama 3.3 70B", "Tool calling", "Node 18+"],
     role: "Sole author. Wrote the agent loop, the tool-dispatch layer and the MCP client wiring.",
-    repoUrl: "https://github.com/niravzxv/upi-agent",
+    repoUrl: "https://github.com/nirav-gondaliya/upi-agent",
     demoUrl: "",
     loomUrl: "",
     isPrivate: false,
@@ -70,7 +70,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "An unofficial TypeScript MCP server for PhonePe Standard Checkout v2. Five tools — create_payment, get_order_status, initiate_refund, get_refund_status and a timing-safe verify_webhook_signature. OAuth tokens are fetched, cached and refreshed automatically. Sandbox and production environments. Unit-tested against a mocked fetch — no live calls.",
     stack: ["TypeScript", "MCP SDK", "Node 18+", "OAuth", "Webhook crypto", "Vitest"],
     role: "Sole author. Designed the tool schema, wrote the auth/cache layer, ship and maintain it solo.",
-    repoUrl: "https://github.com/niravzxv/phonepe-mcp",
+    repoUrl: "https://github.com/nirav-gondaliya/phonepe-mcp",
     demoUrl: "", // TODO: paste live URL
     loomUrl: "", // TODO: paste Loom walkthrough URL
     isPrivate: false,
@@ -191,7 +191,7 @@ export const MORE_TOOLS: MoreTool[] = [
   {
     title: "Todo + scratchpad app",
     blurb: "Daily driver. Todos and free-form notes living together, keyboard first.",
-    repoUrl: "https://github.com/niravzxv/todo",
+    repoUrl: "https://github.com/nirav-gondaliya/todo",
     demoUrl: "", // TODO: paste live URL
     loomUrl: "", // TODO: paste Loom walkthrough URL
     isPrivate: false,
@@ -235,7 +235,7 @@ export const MORE_TOOLS: MoreTool[] = [
     title: "AI server provisioner (Ubuntu 24.04)",
     blurb:
       "One-shot Ubuntu 24.04 setup for GPU AI hosts: NVIDIA drivers + CUDA, Docker, a shared PyTorch venv (transformers, diffusers, accelerate), Node LTS + PM2, UFW. Idempotent.",
-    repoUrl: "https://github.com/niravzxv/shivay-infra-setup",
+    repoUrl: "https://github.com/nirav-gondaliya/shivay-infra-setup",
     demoUrl: "", // TODO: paste live URL
     loomUrl: "", // TODO: paste Loom walkthrough URL
     isPrivate: false,

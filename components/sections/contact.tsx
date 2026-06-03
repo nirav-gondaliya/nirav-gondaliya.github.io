@@ -18,8 +18,8 @@ const LINKS = [
   },
   {
     label: "GitHub",
-    value: "github.com/niravzxv",
-    href: "https://github.com/niravzxv",
+    value: "github.com/nirav-gondaliya",
+    href: "https://github.com/nirav-gondaliya",
   },
 ];
 
