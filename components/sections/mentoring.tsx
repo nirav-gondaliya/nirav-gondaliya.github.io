@@ -30,8 +30,9 @@ export function Mentoring() {
             Engineers I led as technical liaison
           </div>
           <p className="text-fg-soft leading-relaxed">
-            At Ratnam Solutions I was the bridge between the client&apos;s C-suite and a
-            four-engineer team — breaking down vague asks into shippable scope, sequencing
+            At Ratnam Solutions I was embedded with a multinational QSR customer — Burger
+            King and Belgian Waffles — as the bridge between their C-suite and our
+            four-engineer team. Breaking down vague asks into shippable scope, sequencing
             the work, unblocking people, owning the &quot;is it done?&quot; conversation.
           </p>
         </div>

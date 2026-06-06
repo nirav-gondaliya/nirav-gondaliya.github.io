@@ -25,7 +25,7 @@ export function Hero() {
 
       <motion.div {...fade(0)}>
         <StatusBadge>
-          OPEN TO SENIOR / FOUNDING REMOTE ROLES · AVAILABLE NOW
+          OPEN TO FORWARD DEPLOYED / FOUNDING REMOTE ROLES · AVAILABLE NOW
         </StatusBadge>
       </motion.div>
 
@@ -40,17 +40,18 @@ export function Hero() {
         {...fade(0.12)}
         className="mt-6 max-w-3xl text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.15] tracking-tight"
       >
-        Senior Full-Stack Engineer who builds{" "}
-        <span className="scribble-underline">AI infrastructure</span>.
+        Forward Deployed Engineer who ships{" "}
+        <span className="scribble-underline">AI into production</span>.
       </motion.p>
 
       <motion.p
         {...fade(0.18)}
         className="mt-6 max-w-2xl text-lg text-fg-soft leading-relaxed"
       >
-        7+ years shipping production systems across fintech, healthtech and enterprise SaaS.
-        I build the unglamorous infrastructure that makes AI products actually work — MCP
-        servers, local LLM deployment, agentic pipelines, resilient data systems.
+        7+ years embedding with customers — running requirement discovery with stakeholders,
+        prototyping live with their teams, and owning deployment end to end. Most recently
+        focused on putting AI/LLM systems into production: MCP servers and clients, agent
+        loops, multi-LLM routing, RAG on a TypeScript / Node.js / React / AWS stack.
       </motion.p>
 
       <motion.div {...fade(0.24)} className="mt-10 flex flex-wrap items-center gap-4">
@@ -86,10 +87,10 @@ export function Hero() {
         className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl"
       >
         {[
-          ["7+", "years shipping"],
-          ["5M+", "data points/day"],
+          ["7+", "years embedded with customers"],
+          ["3", "continents · IN · US · UK"],
+          ["5M+", "data points/day in prod"],
           ["8", "engineers mentored"],
-          ["1", "Lighthouse PR"],
         ].map(([n, l]) => (
           <div
             key={l}

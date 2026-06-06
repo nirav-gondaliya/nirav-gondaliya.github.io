@@ -266,15 +266,15 @@ export type Role = {
 export const EXPERIENCE: Role[] = [
   {
     company: "Ratnam Solutions",
-    title: "Senior Full-Stack Engineer",
-    period: "Sep 2022 — Present",
-    location: "Remote",
+    title: "Senior Software Engineer · Forward Deployed",
+    period: "Sep 2022 — Apr 2026",
+    location: "Remote, India",
     bullets: [
-      "Built a real-time B2B analytics platform for a multinational QSR chain operating across India & Indonesia, processing 5M+ data points/day into executive dashboards (SSSG, ADS, ADT) — saved the C-suite 5–10 hrs/week.",
-      "Architected a Node.js + MongoDB + Redis data-warehousing pipeline; cut data-transfer latency ~40% across distributed franchise sources.",
-      "Primary technical liaison to the client; led requirement breakdown across a 4-engineer team.",
-      "Embedded AI-assisted development (Cursor, Claude Code) into the team; ~30% faster delivery on greenfield modules.",
-      "Owned production deploy, monitoring and incident response on AWS.",
+      "Embedded as technical lead for a multinational QSR customer — serving Burger King and Belgian Waffles across India and Indonesia. Ran requirement breakdown directly with their executives and shipped a real-time B2B analytics platform processing 5M+ data points/day into the dashboards (SSSG, ADS, ADT) their C-suite runs on — replacing manual reporting and saving them 5–10 hours/week.",
+      "Acted as the primary technical liaison between customer stakeholders and engineering — translating business requirements into scoped work and distributing tasks across a 4-engineer team.",
+      "Architected the Node.js + MongoDB + Redis ingestion and data-warehousing pipeline behind the platform; cut data-transfer latency ~40% across distributed franchise sources.",
+      "Owned production deployment, monitoring and incident response on AWS (EC2, S3, CloudWatch) for the live customer system.",
+      "Introduced AI-assisted development (Cursor, Claude Code) into the team's workflow — ~30% faster delivery on greenfield modules.",
     ],
   },
   {
@@ -283,6 +283,7 @@ export const EXPERIENCE: Role[] = [
     period: "2023 — Present (alongside full-time)",
     location: "Remote",
     bullets: [
+      "Scoped and delivered custom systems for clients end to end — from first call to production.",
       "Built Consult Doctor — telehealth with WebRTC video consults, Razorpay payments and digital prescriptions.",
       "Built the Elios GenAI Suite — image, video, TTS/STT, résumé generation and Google OAuth under one roof.",
       "Mentored 8 junior engineers in full-stack development, system design and code review.",
@@ -290,31 +291,32 @@ export const EXPERIENCE: Role[] = [
   },
   {
     company: "Techniverse Software",
-    title: "Full-Stack Developer",
+    title: "Software Engineer",
     period: "Jan 2022 — Aug 2022",
-    location: "Remote",
+    location: "Rajkot, India",
     bullets: [
-      "Designed serverless infrastructure (AWS Lambda, API Gateway, CloudFormation) for enterprise SaaS clients — ~35% lower infra cost vs EC2.",
-      "Infra-as-code cut provisioning from days to hours.",
+      "Designed and deployed serverless infrastructure (AWS Lambda, API Gateway, CloudFormation) for enterprise SaaS clients — ~35% lower infra cost vs an equivalent EC2-based architecture.",
+      "Built React frontends on serverless backends, owning features end to end from API design to UI.",
+      "Implemented infra-as-code with CloudFormation — provisioning new environments dropped from days to hours.",
     ],
   },
   {
     company: "Soft 'n' Web",
-    title: "Software Developer",
-    period: "Jan 2021 — Jun 2021",
-    location: "Onsite, India",
+    title: "Software Engineer",
+    period: "Jun 2021 — Oct 2021",
+    location: "Rajkot, India",
     bullets: [
-      "Built conversational-AI features using Google Dialogflow and Firebase Functions — scaled to thousands of daily interactions.",
+      "Delivered conversational-AI features with Google Dialogflow and Firebase Functions — scaled to thousands of daily user interactions.",
     ],
   },
   {
     company: "WebCodeGenie Technology",
-    title: "Software Developer",
-    period: "Jan 2019 — Dec 2020",
-    location: "Onsite, India",
+    title: "Software Engineer",
+    period: "Jan 2019 — May 2021",
+    location: "Ahmedabad, India",
     bullets: [
-      "Promoted from intern to developer inside 6 months.",
-      "Shipped production CRM, ERP, Lead Management and loan systems for mid-market clients across India (Node.js, Angular, MongoDB, MySQL).",
+      "Promoted from intern to developer within 6 months on shipping velocity and code quality.",
+      "Built production CRM, ERP, lead-management and financial-loan systems for mid-market clients across India (Node.js, Angular, MongoDB, MySQL).",
     ],
   },
 ];
@@ -338,44 +340,55 @@ export type SkillGroup = { name: string; items: string[] };
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
-    name: "Languages",
-    items: ["TypeScript", "JavaScript", "Python", "Kotlin", "SQL", "Shell"],
-  },
-  {
-    name: "Frontend",
-    items: ["React", "Next.js (App Router)", "Tailwind CSS", "Framer Motion", "Angular"],
-  },
-  {
-    name: "Backend & APIs",
-    items: ["Node.js", "Express", "REST", "WebRTC", "Webhooks", "OAuth 2.0", "WhatsApp Business API"],
+    name: "Customer & delivery",
+    items: [
+      "Requirement discovery & scoping",
+      "Live solutioning with customer teams",
+      "Stakeholder management (C-suite ↔ engineering)",
+      "Technical pre-sales support",
+      "Production deployment",
+      "Monitoring & incident response",
+      "Mentoring",
+    ],
   },
   {
     name: "AI & LLM infra",
     items: [
-      "MCP servers",
+      "MCP servers & clients",
+      "Agent loops",
       "Multi-LLM routing",
-      "Agentic pipelines",
       "RAG",
       "On-device / local LLMs",
-      "Qwen 2.5",
-      "Cline · Aider",
-      "OpenAI APIs",
-      "Google Dialogflow",
+      "OpenAI & Anthropic APIs",
+      "LangChain",
+      "Vector databases",
+      "Prompt engineering",
     ],
   },
   {
-    name: "Data",
-    items: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Queueing / backpressure", "Data warehousing"],
+    name: "Languages",
+    items: ["TypeScript", "JavaScript (ES6+)", "Python", "Kotlin", "SQL", "Shell"],
   },
   {
-    name: "Cloud & infra",
+    name: "Frontend",
+    items: ["React", "Next.js (App Router)", "Redux", "Tailwind CSS", "Framer Motion", "Angular", "GraphQL"],
+  },
+  {
+    name: "Backend & APIs",
+    items: ["Node.js", "Express", "NestJS", "REST", "WebRTC", "Webhooks", "OAuth 2.0", "Microservices", "Event-driven & serverless"],
+  },
+  {
+    name: "Data",
+    items: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "DynamoDB", "Aurora", "Data warehousing", "Rate-limiting & backpressure"],
+  },
+  {
+    name: "Cloud & DevOps",
     items: [
-      "AWS (Lambda, API Gateway, CloudFormation, Route 53, EC2)",
+      "AWS (Lambda, API Gateway, CloudFormation, EC2, S3, SQS, Route 53, CloudWatch)",
       "Docker",
-      "Infra-as-code",
+      "CI/CD · GitHub Actions",
+      "Infrastructure-as-code",
       "Multi-tenant provisioning",
-      "PM2",
-      "UFW · SSH hardening",
     ],
   },
   {
@@ -383,16 +396,12 @@ export const SKILL_GROUPS: SkillGroup[] = [
     items: ["PhonePe Standard Checkout v2", "Razorpay", "Stripe-style audit logs", "RBAC"],
   },
   {
-    name: "GPU & ML toolchain",
-    items: ["NVIDIA CUDA", "PyTorch", "Transformers", "Diffusers", "Accelerate", "FFmpeg"],
-  },
-  {
     name: "Practice",
     items: [
       "AI-assisted dev (Claude Code, Cursor, Aider)",
+      "Cross-timezone async delivery",
       "Production incident response",
       "Mentoring & code review",
-      "Cross-timezone async delivery",
     ],
   },
 ];

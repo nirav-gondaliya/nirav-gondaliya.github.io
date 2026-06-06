@@ -12,15 +12,15 @@ export function LookingFor() {
         </div>
 
         <p className="text-2xl sm:text-3xl md:text-4xl font-display tracking-tightest leading-[1.15]">
-          Senior or founding{" "}
-          <span className="scribble-underline">full-stack / AI-infrastructure</span>{" "}
-          roles. Remote, working with global teams. Open to full-time or contract. I do my
-          best work owning systems end-to-end from zero.
+          Forward Deployed / Customer Engineering / founding{" "}
+          <span className="scribble-underline">AI delivery</span>{" "}
+          roles. Remote, on the customer&apos;s calls, owning the work from discovery to
+          production. Open to full-time or contract.
         </p>
 
         <div className="mt-8 grid sm:grid-cols-3 gap-4">
-          <Fit label="Role" value="Senior · Founding · Staff" />
-          <Fit label="Setup" value="Remote, async-friendly" />
+          <Fit label="Role" value="Forward Deployed · Customer Engineer · Founding" />
+          <Fit label="Setup" value="Remote, on the customer's calls" />
           <Fit label="Shape" value="Full-time or contract" />
         </div>
       </div>

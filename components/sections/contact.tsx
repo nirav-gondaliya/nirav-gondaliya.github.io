@@ -69,7 +69,7 @@ export function Contact() {
             you&apos;re building, who&apos;s on the team, and what would make the next 90 days a win.
           </p>
           <a
-            href="mailto:nirav.gondaliya@icloud.com?subject=Senior%20%2F%20Founding%20role"
+            href="mailto:nirav.gondaliya@icloud.com?subject=Forward%20Deployed%20%2F%20Founding%20role"
             className="mt-6 inline-flex items-center justify-center bg-accent text-white px-5 py-3 font-semibold border border-fg shadow-hard hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all"
           >
             Start the conversation
